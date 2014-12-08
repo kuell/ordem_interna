@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => ['*:8000'],
+	'local' => ['localhost', gethostname()],
 	'production'=>['*:90']
 
 ));

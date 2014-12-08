@@ -59,9 +59,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/osi">Movimentações</a></li>
-            <li><a href="#about">Relatorio S.I.F.</a></li>
-            <li><a href="#contact">Relatorio FEFA</a></li>
+            <li><a href="/osi">Ordem Interna</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
