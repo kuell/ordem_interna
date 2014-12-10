@@ -36,7 +36,7 @@
 					<td>{{ $servico->descricao }}</td>
 					<td>
 						<a href="/osi/servicos/{{ $servico->id }}/edit" title="Gerenciar Prazos">
-							{{ OrdemInternaServico::prazo($servico->id) }}
+							{{ OrdemInternaServico::prazo($servico->id) or '0' }}
 						</a>
 					</td>
 					<td>
