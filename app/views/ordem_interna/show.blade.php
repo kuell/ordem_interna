@@ -37,6 +37,27 @@
 						<tr>
 							<td colspan="4">{{ $ordem_interna->obs }}</td>
 						</tr>
+						<tr>
+							<td colspan="4">
+									<table class="table">
+											<thead>
+												<tr>
+													<th>Serviço</th>
+													<th>Prazo</th>
+												</tr>
+											</thead>
+											<tbody>
+												@foreach($ordem_interna->servicos as $servico)
+												<tr>
+													<td>{{ $servico->descricao }}</td>
+													<td>{{ OrdemInternaServico::prazo($servico->id) }}</td>
+												</tr>
+												@endforeach
+											</tbody>
+										</table>
+
+							</td>
+						</tr>
 				</table>
 			</div>
 

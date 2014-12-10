@@ -16,7 +16,7 @@ class CreateOrdemInternaPrazosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('servico_id');
-			$table->integer('prazo');
+			$table->integer('prazo')->nullable();
 			$table->string('justificativa');
 			$table->timestamps();
 		});

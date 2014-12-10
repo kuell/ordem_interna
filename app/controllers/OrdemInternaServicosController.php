@@ -43,6 +43,7 @@ class OrdemInternaServicosController extends \BaseController {
 
 			$servico = New OrdemInternaServico();
 			$serv = $servico->create($input);
+
 			if(!empty($prazo)){
 				$p = new OrdemInternaPrazo();
 					$p->servico_id = $serv->id;

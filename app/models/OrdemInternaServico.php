@@ -11,9 +11,12 @@ class OrdemInternaServico extends Eloquent{
 		$prazo = DB::table('ordem_interna_prazos')->select('prazo')
 												  ->where('servico_id', $servico_id)
 												  ->orderBy('id', 'desc')->limit(1)->first();
-
-		return $prazo->prazo;
-
+			if(empty($prazo->prazo)){
+				return null;
+			}
+			else{
+				return $prazo->prazo;
+			}
 	}
 
 }
