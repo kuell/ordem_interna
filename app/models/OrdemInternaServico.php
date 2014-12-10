@@ -12,7 +12,7 @@ class OrdemInternaServico extends Eloquent{
 												  ->where('servico_id', $servico_id)
 												  ->orderBy('id', 'desc')->limit(1)->first();
 			if(empty($prazo->prazo)){
-				return null;
+				return '0';
 			}
 			else{
 				return $prazo->prazo;
