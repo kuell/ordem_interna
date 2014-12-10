@@ -33,8 +33,8 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'sig_novo',
+			'host'     => '10.1.1.3',
+			'database' => 'sig_testes',
 			'username' => 'postgres',
 			'password' => 'aporedux',
 			'charset'  => 'utf8',
