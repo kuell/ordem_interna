@@ -14,3 +14,4 @@
 Route::get('/', 'HomeController@index');
 
 Route::resource('osi', 'OrdemInternaController');
+Route::resource('osi/servicos', 'OrdemInternaServicosController');

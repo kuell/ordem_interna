@@ -23,20 +23,31 @@
 </div>
 
 <div class="col-md-12">
+	<div class="col-md-5">
+		{{ Form::label('equipamento', 'Equipamento: ') }}
+		{{ Form::text('equipamento_id', null, ['class'=>'form-control', 'id'=>'equipamento']) }}
+	</div>
+</div>
+
+
+<div class="col-md-12">
 	<div class="col-md-12">
 		{{ Form::label('descricao', 'Descrição da Ordem de Serviço: ') }}
 		{{ Form::textarea('obs', null, ['class'=>'form-control']) }}
 	</div>
 </div>
 
-<div class="col-md-12">
-	<div class="col-md-5">
-		{{ Form::label('prazo', 'Prazo para realização do serviço (dia): ') }}
-		{{ Form::text('prazo', null, ['class'=>'form-control']) }}
-</div>
-
 <script>
-	$( "#data" ).datepicker();
+$( "#equipamento" ).autocomplete({
+		source: [ 	@foreach (Equipamento::all() as $e)
+						'{{ $e->descricao }}',
+				  	@endforeach ]
+	});
+
+
+	$( "#data" ).datepicker({ 
+						dateFormat: 'dd/mm/yy'
+					});
 	$('#data').mask('99/99/9999');
 	$('.valor').maskMoney({
 					showSymbol:false, 

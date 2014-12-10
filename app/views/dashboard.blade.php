@@ -68,5 +68,16 @@
     <div class="container ">
         @yield('main')
     </div><!-- /.container -->
+
+<script type="text/javascript">
+  $(function(){
+    $('input[type=text] , textarea').blur(function(){
+      string = $(this).val().toUpperCase();
+      $(this).val(string);
+    })
+  })
+
+</script>
+
   </body>
 </html>

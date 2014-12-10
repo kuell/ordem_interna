@@ -19,7 +19,7 @@ class CreateOsiTable extends Migration {
 			$table->integer('setor_responsavel_id');
 			$table->string('requisitante');
 			$table->integer('setor_requisitante_id');
-			$table->integer('prazo');
+			$table->integer('equipamento_id');
 			$table->text('obs');
 			$table->string('status')->default('aberto');
 			$table->timestamps();

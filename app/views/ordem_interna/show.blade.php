@@ -14,8 +14,8 @@
 							<th class="well">Numero da Ordem Interna</th>
 							<td>{{ $ordem_interna->id }}</td>
 
-							<th class="well">Prazo de conclusão</th>
-							<td>{{ $ordem_interna->prazo }} dia(s)</td>
+							<th class="well">Equipamento:</th>
+							<td>{{ $ordem_interna->equipamento_id }}</td>
 						</tr>
 						<tr>
 							<th class="well">Data: </th>

@@ -15,7 +15,7 @@
 							<th>Setor Responsavel</th>
 							<th>Requisitante</th>
 							<th>Setor Requisitante</th>
-							<th>Prazo</th>
+							<th>Equipamento</th>
 						<th>
 								{{ link_to_route('osi.create', 'Adicionar', null, ['class'=>'btn btn-success']) }}
 							</th> 
@@ -29,7 +29,7 @@
 							<td>{{ $ordem_interna->setorResponsavel->descricao }}</td>
 							<td>{{ $ordem_interna->requisitante }}</td>
 							<td>{{ $ordem_interna->setorRequisitante->descricao }}</td>
-							<td>{{ $ordem_interna->prazo }} dia(s)</td>
+							<td>{{ $ordem_interna->equipamento_id }}</td>
 							<td>
 								<div class="btn-group btn-group-xs" role="group" aria-label="...">
 									<a href="/osi/{{ $ordem_interna->id }}/edit " class="btn btn-info"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a> 

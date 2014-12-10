@@ -45,9 +45,28 @@ class OrdemInternaController extends \BaseController {
 		$validator = Validator::make($input, $this->rules);
 
 		if($validator->passes()){
-			$this->ordem_internas->create($input);
+			//Inclusão na tabela equipamentos se não existir
+			
+				$equipamento = Equipamento::where('descricao', '=', $input['equipamento_id'])->get();
 
-			return Redirect::route('osi.index');
+					if(!$equipamento->count()){
+						$equip = new Equipamento();
+						
+						$equip->descricao = $input['equipamento_id'];
+						$equip->setor_id = $input['setor_requisitante_id'];
+						$equip->save();
+					}
+					else{
+						$equip = Equipamento::where('descricao', '=', $input['equipamento_id'])->first();
+					}
+				$input['equipamento_id'] = $equip->id;
+
+			//Fim da inclusão de equipamentos
+
+
+			$osi = $this->ordem_internas->create($input);
+
+			return Redirect::route('osi.edit', $osi->id );
 		}
 		else{
 			echo "Erro na inclusão dos dados!";
@@ -91,7 +110,40 @@ class OrdemInternaController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+
+		$validator = Validator::make($input, $this->rules);
+
+		if($validator->passes()){
+
+			//Inclusão na tabela equipamentos se não existir
+			
+				$equipamento = Equipamento::where('descricao', '=', $input['equipamento_id'])->get();
+
+					if(!$equipamento->count()){
+						$equip = new Equipamento();
+						
+						$equip->descricao = $input['equipamento_id'];
+						$equip->setor_id = $input['setor_requisitante_id'];
+						$equip->save();
+					}
+					else{
+						$equip = Equipamento::where('descricao', '=', $input['equipamento_id'])->first();
+					}
+				$input['equipamento_id'] = $equip->id;
+
+			//Fim da inclusão de equipamentos
+
+
+			$ordem_interna = $this->ordem_internas->find($id);
+
+			$ordem_interna->update($input);
+
+			return Redirect::route('osi.edit', $ordem_interna->id);
+		}
+		else{
+			echo "Erro na Alteração dos dados!";
+		}
 	}
 
 
