@@ -5,9 +5,9 @@
 			{{ HTML::style('assets/css/bootstrap.css') }}
 		</head>
 		<body>
-			<div class="col-md-9">
+			<div class="col-md-10">
 				<div class="well">
-					<h2 class="text-center">Frizelo Frigorificos Ltda.</h2>
+					<h3 class="text-center">Frizelo Frigorificos Ltda.</h3>
 				</div>
 				<table class="table table-bordered">
 						<tr>
@@ -22,7 +22,7 @@
 							<td>{{ $ordem_interna->data }}</td>
 
 							<th class="well">Requisitante: </th>
-							<td>{{ $ordem_interna->data }}</td>
+							<td>{{ $ordem_interna->requisitante }}</td>
 						</tr>
 
 						<tr>
@@ -50,7 +50,7 @@
 												@foreach($ordem_interna->servicos as $servico)
 												<tr>
 													<td>{{ $servico->descricao }}</td>
-													<td>{{ OrdemInternaServico::prazo($servico->id) }}</td>
+													<td>{{ OrdemInternaServico::prazo($servico->id, true) }}</td>
 												</tr>
 												@endforeach
 											</tbody>
@@ -59,7 +59,19 @@
 							</td>
 						</tr>
 				</table>
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<p>__________________________________<br>
+							{{ $ordem_interna->requisitante }}
+						</p>
+					
+					</div>
+					<div class="col-md-4">
+						<p>__________________________________<br>
+								{{ $ordem_interna->setorResponsavel->descricao }}
+						</p>
+					</div>
+				</div>
 			</div>
-
 		</body>
 	</html>
